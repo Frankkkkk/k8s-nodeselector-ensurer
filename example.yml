@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: test-nodeselector
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: test-nodeselector
+  template:
+    metadata:
+      labels:
+        name: test-nodeselector
+      annotations:
+        frankkkkk.nodeSelectorDuringExecution: "true"
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+      nodeSelector:
+        foo: bar
