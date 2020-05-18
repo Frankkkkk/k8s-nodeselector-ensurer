@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: kube-system
+  name: nodeselector-ensurer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nodeselector-ensurer
+  template:
+    metadata:
+      labels:
+        name: nodeselector-ensurer
+    spec:
+      containers:
+      - name: watcher
+        image: frankkkkk/k8s-nodeselector-during-execution:latest
+      serviceAccount: node-controller

@@ -53,8 +53,9 @@ def evict_pods_if_necessary(v1_api, node_labels):
 
 
 def main_loop():
-    kubernetes.config.load_kube_config()
+    kubernetes.config.load_incluster_config()
     v1_api = kubernetes.client.CoreV1Api()
+
     while True:
         node_labels = get_node_labels(v1_api)
         evict_pods_if_necessary(v1_api, node_labels)
