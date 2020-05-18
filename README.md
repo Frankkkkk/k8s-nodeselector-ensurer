@@ -5,20 +5,6 @@ the pods running on the kubernetes cluster adhere to their `nodeSelector` label 
 That is, when a node stops offering a particular label (e.g. `foo=bar`) that a pod
 needs, `k8s-nodeselector-ensurer` will detect this and thus kill the aforementionned pod.
 
-
-# How to use it
-First of all, this is a POC, so don't use it. But if you still want to, follow these steps:
-
-## Installation
-To install this watcher, simply `kubectl apply -f nodeselector-ensurer.yml`
-
-## Pod usage
-By default, this watcher does not change the existing nodeSelector logic.
-
-In order to mark pods as being killable when their `nodeSelector` no longer matches their node's,
-just annote the pods with `frankkkkk.nodeSelectorDuringExecution: "true"`
-
-
 # Example
 ```bash
 $ kubectl apply -f nodeselector-ensurer.yml
@@ -45,6 +31,21 @@ $ sleep 1m && kl get pod -l name=test-nodeselector
 NAME                                 READY   STATUS    RESTARTS   AGE
 test-nodeselector-5c68758d5f-287sj   0/1     Pending   0          88s
 ```
+
+
+
+# How to use it
+First of all, this is a POC, so don't use it. But if you still want to, follow these steps:
+
+## Installation
+To install this watcher, simply `kubectl apply -f nodeselector-ensurer.yml`
+
+## Pod usage
+By default, this watcher does not change the existing nodeSelector logic.
+
+In order to mark pods as being killable when their `nodeSelector` no longer matches their node's,
+just annote the pods with `frankkkkk.nodeSelectorDuringExecution: "true"`
+
 
 
 # Why this watcher ?
