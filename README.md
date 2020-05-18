@@ -1,4 +1,4 @@
-# Kubernetes NodeSelector ensurer
+# ☸️ Kubernetes NodeSelector ensurer
 `k8s-nodeselector-ensurer` is a watcher whose role is to ensure that all
 the pods running on the kubernetes cluster adhere to their `nodeSelector` label list.
 
@@ -34,7 +34,7 @@ test-nodeselector-5c68758d5f-287sj   0/1     Pending   0          88s
 
 
 
-# How to use it
+# How to use it ❓
 First of all, this is a POC, so don't use it. But if you still want to, follow these steps:
 
 ## Installation
@@ -48,9 +48,9 @@ just annote the pods with `frankkkkk.nodeSelectorDuringExecution: "true"`
 
 
 
-# Why this watcher ?
+# Why this watcher ⁉️
 Kubernetes plans on offering the extra `requiredDuringSchedulingRequiredDuringExecution` affinity type.
-However it is still (as of kubernetes 1.18) still not implemented in the node scheduler.
+However it is still (as of k8s 1.18) still not implemented in the node scheduler 😞.
 
 At first I wanted the watcher to implement this feature, however the Pod resource definition is
 not customizable.
