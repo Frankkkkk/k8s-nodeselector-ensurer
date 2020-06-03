@@ -10,4 +10,4 @@ COPY src .
 
 EXPOSE 80
 STOPSIGNAL SIGINT
-CMD ["./watcher.py"]
+CMD ["kopf", "run", "./operator.py"]
