@@ -27,7 +27,7 @@ test-nodeselector-5c68758d5f-9dhlw   1/1     Running   0          28s
 $ kl label node node-c24v-2 foo=notbar --overwrite
 node/node-c24v-2 labeled
 
-$ sleep 1m && kl get pod -l name=test-nodeselector
+$ kl get pod -l name=test-nodeselector
 NAME                                 READY   STATUS    RESTARTS   AGE
 test-nodeselector-5c68758d5f-287sj   0/1     Pending   0          88s
 ```
